@@ -50,26 +50,25 @@ export default function AppFrame({ children }: Props) {
   return (
     <div className={className}>
       {showSwitcher && (
-        <div className="designSwitcher" role="navigation" aria-label="Design switcher">
+        <div className="designSwitcher" role="navigation" aria-label="Website switcher">
           <div className="designSwitcherInner">
-            <div className="designSwitcherLabel">Design:</div>
             <Link
               className={design === 'classic' ? 'designSwitchLink designSwitchLinkActive' : 'designSwitchLink'}
               to={classicTo}
             >
-              Classic
+              Website 1
             </Link>
             <Link
               className={design === 'bold' ? 'designSwitchLink designSwitchLinkActive' : 'designSwitchLink'}
               to={boldTo}
             >
-              Bold
+              Website 2
             </Link>
             <Link
               className={design === 'minimal' ? 'designSwitchLink designSwitchLinkActive' : 'designSwitchLink'}
               to={minimalTo}
             >
-              Minimal
+              Website 3
             </Link>
           </div>
         </div>

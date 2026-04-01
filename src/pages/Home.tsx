@@ -98,7 +98,7 @@ export default function Home() {
         <section className="section">
           <div className="sectionHeader">
             <h2>Recent work</h2>
-            <p>Here are a few examples—swap in your real photos anytime.</p>
+            <p>Here are a few examples</p>
           </div>
 
           <GalleryGrid items={recentItems} />
