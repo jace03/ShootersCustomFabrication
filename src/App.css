@@ -15,6 +15,15 @@
   --text-h: #0b0a0d;
   --border: #e2e3e7;
   --code-bg: #eef0f5;
+
+  /* Ensure the selector page stays readable even if the OS is in dark mode. */
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 }
 
 /* Classic = warm copper / blueprint-light */
@@ -341,6 +350,20 @@
   gap: 28px;
 }
 
+.pageChooseDesign {
+  text-align: left;
+  max-width: 1126px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 20px;
+}
+
+@media (max-width: 560px) {
+  .pageChooseDesign {
+    padding: 16px;
+  }
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -418,6 +441,10 @@
 .heroSubtitle {
   margin: 0;
   max-width: 60ch;
+}
+
+.pageChooseDesign .heroSubtitle {
+  max-width: none;
 }
 
 .heroHighlights {
@@ -719,19 +746,74 @@
 }
 
 .designsGrid {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
 
-  @media (max-width: 1100px) {
+  @media (min-width: 720px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: 560px) {
-    grid-template-columns: 1fr;
+  @media (min-width: 1100px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 .designCard {
   display: grid;
   gap: 10px;
+}
+
+.pageChooseDesign .heroSection {
+  padding: 14px;
+}
+
+.pageChooseDesign .heroTitle {
+  font-size: 38px;
+}
+
+@media (min-width: 900px) {
+  .pageChooseDesign .heroSection {
+    padding: 18px;
+  }
+
+  .pageChooseDesign .heroTitle {
+    font-size: 52px;
+  }
+}
+
+.pageChooseDesign .chooseDesignOptions {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: color-mix(in oklab, var(--social-bg) 70%, transparent);
+}
+
+.pageChooseDesign .designCard {
+  border-color: color-mix(in oklab, var(--border) 75%, var(--accent-border));
+  box-shadow: var(--shadow);
+}
+
+.pageChooseDesign .designCard .sectionActions {
+  margin-top: 4px;
+}
+
+@media (max-width: 560px) {
+  .pageChooseDesign .chooseDesignOptions {
+    padding: 12px;
+  }
+
+  .pageChooseDesign .designCard .sectionActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pageChooseDesign .designCard .button {
+    width: 100%;
+  }
+}
+
+@media (min-width: 900px) {
+  .pageChooseDesign .chooseDesignOptions {
+    padding: 18px;
+  }
 }
 
 /* Bold variant */

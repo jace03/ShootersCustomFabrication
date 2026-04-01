@@ -16,7 +16,7 @@ export default function BoldLayout() {
       <header className="header headerBold">
         <div className="headerInner headerInnerBold">
           <Link className="brand brandLink brandWithLogo" to="/" aria-label="All designs">
-            <img className="brandLogo" src="/gallery/gallery-14.jpg" alt="" aria-hidden="true" />
+            <img className="brandLogo" src="/gallery/ShooterLogoDark.jpg" alt="" aria-hidden="true" />
             <div className="brandText">
               <div className="brandName">{siteConfig.businessName}</div>
               <div className="brandTagline">{siteConfig.tagline}</div>

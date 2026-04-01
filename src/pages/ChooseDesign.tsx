@@ -1,8 +1,5 @@
-import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { galleryItems } from '../data/galleryItems'
 import { siteConfig } from '../siteConfig'
-import { pickRandom } from '../utils/random'
 
 type Option = {
   title: string
@@ -32,12 +29,10 @@ const options: Option[] = [
 ]
 
 export default function ChooseDesign() {
-  const heroSrc = useMemo(() => {
-    return pickRandom(galleryItems)?.src ?? '/gallery/gallery-01.jpg'
-  }, [])
+  const heroSrc = '/gallery/ShooterLogoDark.jpg'
 
   return (
-    <div className="page">
+    <div className="page pageChooseDesign">
       <section className="heroSection">
         <div className="heroGrid">
           <div className="heroCopy">
@@ -46,20 +41,6 @@ export default function ChooseDesign() {
               Pick one of the 3 designs to show {siteConfig.businessName}. Each
               option includes the same 3 pages: Home, Services, Gallery.
             </p>
-
-            <div className="heroActions">
-              <a
-                className="button buttonPrimary"
-                href={`tel:${siteConfig.phoneTel}`}
-              >
-                Test the call button
-              </a>
-            </div>
-
-            <div className="heroSmall">
-              <strong>Tip:</strong> Replace contact info in{' '}
-              <code>src/siteConfig.ts</code>
-            </div>
           </div>
 
           <div className="heroMedia" aria-hidden="true">
@@ -68,7 +49,7 @@ export default function ChooseDesign() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section chooseDesignOptions">
         <div className="cardGrid designsGrid">
           {options.map((option) => (
             <div key={option.title} className="card designCard">
