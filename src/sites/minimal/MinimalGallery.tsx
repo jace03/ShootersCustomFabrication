@@ -1,8 +1,12 @@
+import { useMemo } from 'react'
 import GalleryGrid from '../../components/GalleryGrid'
 import { galleryItems } from '../../data/galleryItems'
 import { siteConfig } from '../../siteConfig'
+import { shuffled } from '../../utils/random'
 
 export default function MinimalGallery() {
+  const items = useMemo(() => shuffled(galleryItems).slice(0, 9), [])
+
   return (
     <div className="page pageMinimal">
       <section className="pageHeader">
@@ -17,7 +21,7 @@ export default function MinimalGallery() {
       </section>
 
       <section className="section">
-        <GalleryGrid items={galleryItems.slice(0, 9)} />
+        <GalleryGrid items={items} />
       </section>
 
       <section className="section">

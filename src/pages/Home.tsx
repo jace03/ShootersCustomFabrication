@@ -1,11 +1,20 @@
-import heroImg from '../assets/hero.png'
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import GalleryGrid from '../components/GalleryGrid'
 import Reveal from '../components/Reveal'
 import { galleryItems } from '../data/galleryItems'
 import { siteConfig } from '../siteConfig'
+import { pickRandom, shuffled } from '../utils/random'
 
 export default function Home() {
+  const heroSrc = useMemo(() => {
+    return pickRandom(galleryItems)?.src ?? '/gallery/gallery-01.jpg'
+  }, [])
+
+  const recentItems = useMemo(() => {
+    return shuffled(galleryItems).slice(0, 6)
+  }, [])
+
   return (
     <div className="page">
       <section className="heroSection">
@@ -42,7 +51,7 @@ export default function Home() {
           </div>
 
           <div className="heroMedia" aria-hidden="true">
-            <img className="heroImage" src={heroImg} alt="" />
+            <img className="heroImage" src={heroSrc} alt="" />
           </div>
         </div>
       </section>
@@ -92,7 +101,7 @@ export default function Home() {
             <p>Here are a few examples—swap in your real photos anytime.</p>
           </div>
 
-          <GalleryGrid items={galleryItems.slice(0, 6)} />
+          <GalleryGrid items={recentItems} />
 
           <div className="sectionActions">
             <Link className="button buttonSecondary" to="gallery">

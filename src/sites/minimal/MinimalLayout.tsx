@@ -15,9 +15,12 @@ export default function MinimalLayout() {
 
       <header className="header headerMinimal">
         <div className="headerInner headerInnerMinimal">
-          <Link className="brand brandLink" to="/" aria-label="All designs">
-            <div className="brandName">{siteConfig.businessName}</div>
-            <div className="brandTagline">{siteConfig.serviceArea}</div>
+          <Link className="brand brandLink brandWithLogo" to="/" aria-label="All designs">
+            <img className="brandLogo" src="/gallery/gallery-14.jpg" alt="" aria-hidden="true" />
+            <div className="brandText">
+              <div className="brandName">{siteConfig.businessName}</div>
+              <div className="brandTagline">{siteConfig.serviceArea}</div>
+            </div>
           </Link>
 
           <nav className="nav" aria-label="Primary">

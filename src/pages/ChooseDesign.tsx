@@ -1,6 +1,8 @@
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import heroImg from '../assets/hero.png'
+import { galleryItems } from '../data/galleryItems'
 import { siteConfig } from '../siteConfig'
+import { pickRandom } from '../utils/random'
 
 type Option = {
   title: string
@@ -30,6 +32,10 @@ const options: Option[] = [
 ]
 
 export default function ChooseDesign() {
+  const heroSrc = useMemo(() => {
+    return pickRandom(galleryItems)?.src ?? '/gallery/gallery-01.jpg'
+  }, [])
+
   return (
     <div className="page">
       <section className="heroSection">
@@ -57,7 +63,7 @@ export default function ChooseDesign() {
           </div>
 
           <div className="heroMedia" aria-hidden="true">
-            <img className="heroImage" src={heroImg} alt="" />
+            <img className="heroImage" src={heroSrc} alt="" />
           </div>
         </div>
       </section>

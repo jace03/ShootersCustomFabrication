@@ -55,6 +55,7 @@
 }
 
 .appFrame {
+  --topBarOffset: 0px;
   width: 100%;
   margin: 0;
   text-align: center;
@@ -63,6 +64,10 @@
   flex-direction: column;
   box-sizing: border-box;
   background: var(--bg);
+}
+
+.appFrameHasSwitcher {
+  --topBarOffset: 44px;
 }
 
 body {

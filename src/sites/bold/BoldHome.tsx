@@ -1,8 +1,14 @@
-import heroImg from '../../assets/hero.png'
+import { useMemo } from 'react'
 import Reveal from '../../components/Reveal'
+import { galleryItems } from '../../data/galleryItems'
 import { siteConfig } from '../../siteConfig'
+import { pickRandom } from '../../utils/random'
 
 export default function BoldHome() {
+  const heroSrc = useMemo(() => {
+    return pickRandom(galleryItems)?.src ?? '/gallery/gallery-01.jpg'
+  }, [])
+
   return (
     <div className="page pageBold">
       <section className="boldHero">
@@ -31,7 +37,7 @@ export default function BoldHome() {
           </div>
 
           <div className="boldHeroMedia" aria-hidden="true">
-            <img className="heroImage" src={heroImg} alt="" />
+            <img className="heroImage" src={heroSrc} alt="" />
           </div>
         </div>
       </section>

@@ -5,12 +5,10 @@ export function useRevealOnScroll<T extends HTMLElement>() {
   const prefersReducedMotion = usePrefersReducedMotion()
   const ref = useRef<T | null>(null)
   const [isRevealed, setIsRevealed] = useState(false)
+  const revealed = prefersReducedMotion || isRevealed
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      setIsRevealed(true)
-      return
-    }
+    if (prefersReducedMotion) return
 
     const element = ref.current
     if (!element) return
@@ -29,5 +27,5 @@ export function useRevealOnScroll<T extends HTMLElement>() {
     return () => observer.disconnect()
   }, [prefersReducedMotion])
 
-  return { ref, isRevealed }
+  return { ref, isRevealed: revealed }
 }

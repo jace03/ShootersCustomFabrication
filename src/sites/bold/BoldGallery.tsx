@@ -1,8 +1,12 @@
+import { useMemo } from 'react'
 import GalleryGrid from '../../components/GalleryGrid'
 import { galleryItems } from '../../data/galleryItems'
 import { siteConfig } from '../../siteConfig'
+import { shuffled } from '../../utils/random'
 
 export default function BoldGallery() {
+  const items = useMemo(() => shuffled(galleryItems), [])
+
   return (
     <div className="page pageBold">
       <section className="pageHeader">
@@ -17,7 +21,7 @@ export default function BoldGallery() {
       </section>
 
       <section className="section">
-        <GalleryGrid items={galleryItems} />
+        <GalleryGrid items={items} />
 
         <div className="callout">
           <div className="calloutTitle">Let’s build yours</div>

@@ -1,8 +1,12 @@
+import { useMemo } from 'react'
 import GalleryGrid from '../components/GalleryGrid'
 import { galleryItems } from '../data/galleryItems'
 import { siteConfig } from '../siteConfig'
+import { shuffled } from '../utils/random'
 
 export default function Gallery() {
+  const items = useMemo(() => shuffled(galleryItems), [])
+
   return (
     <div className="page">
       <section className="pageHeader">
@@ -17,7 +21,7 @@ export default function Gallery() {
       </section>
 
       <section className="section">
-        <GalleryGrid items={galleryItems} />
+        <GalleryGrid items={items} />
 
         <div className="callout">
           <div className="calloutTitle">Need a quote?</div>
